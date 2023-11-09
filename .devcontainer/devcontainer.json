@@ -1,5 +1,27 @@
 {
+  "$schema": "https://raw.githubusercontent.com/devcontainers/spec/main/schemas/devContainer.schema.json",
+  "name": "Flutter",
   "image": "cirrusci/flutter:stable",
-  "features": {
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dart-code.flutter",
+        "dart-code.dart-code",
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "ms-python.pylint",
+        "ms-azuretools.vscode-docker",
+        "chflick.firecode",
+        "toba.vsfire",
+        "github.copilot",
+        "github.copilot-chat",
+        "figma.figma-vscode-extension",
+        "ms-vscode-remote.remote-containers",
+        "circlecodesolution.ccs-flutter-color",
+        "github.codespaces",
+        "romanrei.material-dark",
+        "redhat.vscode-yaml"
+      ]
+    }
   }
 }
