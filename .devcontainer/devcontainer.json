@@ -11,11 +11,8 @@
   },
   "features": {
     "ghcr.io/devcontainers/features/github-cli:1": {},
-    "ghcr.io/devcontainers/features/python:1": {},
+    "ghcr.io/devcontainers/features/git:1": {},
     "ghcr.io/meaningful-ooo/devcontainer-features/homebrew:2": {},
-    "ghcr.io/devcontainers-contrib/features/firebase-cli:2": {},
-    "ghcr.io/dhoeric/features/google-cloud-cli:1": {},
-    "ghcr.io/jarrodcolburn/features/flutter-sdk:0": {}
   },
   "customizations": {
     "vscode": {
