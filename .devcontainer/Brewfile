@@ -1,0 +1,5 @@
+tap "homebrew/bundle"
+brew "firebase-cli"
+brew "gh"
+brew "git"
+brew "python@3.10"
