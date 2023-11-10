@@ -23,6 +23,24 @@ https://dev.to/pwd9000/hosting-your-self-hosted-runners-on-github-codespaces-2el
 Note: you will need to follow along with this repo. There will be some steps where you need
 to create 3 secrets in the repo using a GitHub personal access token. 
 
+## Initial setup
+
+### Ensure the github actions are running properly.
+
+By default, there will be a self-hosted github actions ci machine setup
+that will run all actions against the exact machine you are using to
+develop on. This will eliminate any issues with the CI machine not
+having the same environment as your local machine.
+
+First, go into .github/workflows and open the demo_action_self_hosted.yml file.
+Replace the `runs-on` field with an array that includes your GH_OWNER variable
+that you set in the secrets section of the code-space for the repo.
+
+Once done, commit the changes and push them to the repo. This should
+start the github actions workflow. 
+
+![Alt text](image.png)
+
 ## Firebase setup
 
 In order to push your app to hosting, you will need to

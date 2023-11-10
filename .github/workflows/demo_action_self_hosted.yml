@@ -7,6 +7,8 @@ on:
 
 jobs:
     demo:
+        # TODO: replace runs-on with your GH_OWNER variable.
+        # runs-on: [self-hosted, GH_OWNER]
         runs-on: [self-hosted, TylerJewell]
         steps:
             - uses: actions/checkout@v3.6.0
