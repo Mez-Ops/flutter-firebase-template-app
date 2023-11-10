@@ -20,7 +20,7 @@ RUN cd /home/vscode/actions-runner \
     && /home/vscode/actions-runner/bin/installdependencies.sh
 
 # setup brew
-RUN chmod +x scripts/setup-brew.sh && scripts/setup-brew.sh
+RUN chmod +x .devcontainer/scripts/setup-brew.sh && .devcontainer/scripts/setup-brew.sh
 
 # TODO: auth with gh
 # TODO: auth with firebase
