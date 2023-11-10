@@ -47,14 +47,24 @@ You can also look at this runner here:
 
 ## Firebase setup
 
-In order to push your app to hosting, you will need to
-setup a firebase app first. We will do this in the console
-below. You should have at least set up a Firebase account here:
+Firebase CLI will be used to deploy the app to firebase.
 
-https://console.firebase.google.com/
+Documentation: https://console.firebase.google.com/
 
-Once you have an account, you can create a new project.
+Firebase has been installed by default. You will need to authenticate
+with the CLI by running:
 
+```bash
+firebase login
+```
+
+This will give you a link. Make sure you sign in with your firebase account.
+
+You can look at your current firebase projects by running:
+
+```bash
+firebase projects:list
+```
 
 ## Setup 
 

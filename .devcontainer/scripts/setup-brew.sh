@@ -15,7 +15,7 @@ brew upgrade && brew cleanup
 
 # Install bundle using Homebrew
 echo "Installing bundle using Homebrew..."
-brew bundle --file=.devcontainer/Brewfile
+brew bundle install
 
 # Run brew doctor.
 brew doctor
