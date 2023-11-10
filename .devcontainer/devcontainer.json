@@ -1,33 +1,37 @@
 {
-  "$schema": "https://raw.githubusercontent.com/devcontainers/spec/main/schemas/devContainer.schema.json",
-  "name": "Flutter",
-  "image": "cirrusci/flutter:stable",
-  "secrets": {
-    "FIREBASE_SERVICE_ACCOUNT": {
-      "description": "The service account JSON to auth your Firebase project. \nEnsure the service account has Firebase Admin and Cloud Functions Admin.",
-      "documentationUrl": "https://cloud.google.com/iam/docs/service-accounts-create"
-    }
-  },
-  // "onCreateCommand": ".devcontainer/on-create-command.sh",
-  "customizations": {
-    "vscode": {
-      "extensions": [
-        "dart-code.flutter",
-        "ms-python.python",
-        "ms-python.vscode-pylance",
-        "ms-python.pylint",
-        "ms-azuretools.vscode-docker",
-        "chflick.firecode",
-        "toba.vsfire",
-        "github.copilot",
-        "github.copilot-chat",
-        "figma.figma-vscode-extension",
-        "ms-vscode-remote.remote-containers",
-        "circlecodesolution.ccs-flutter-color",
-        "github.codespaces",
-        "romanrei.material-dark",
-        "redhat.vscode-yaml"
-      ]
-    }
-  }
+	"name": "Flutter Code Space Container",
+	"dockerFile": "Dockerfile",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"dart-code.flutter",
+				"ms-python.python",
+				"ms-python.vscode-pylance",
+				"ms-python.pylint",
+				"ms-azuretools.vscode-docker",
+				"chflick.firecode",
+				"toba.vsfire",
+				"github.copilot",
+				"github.copilot-chat",
+				"figma.figma-vscode-extension",
+				"ms-vscode-remote.remote-containers",
+				"circlecodesolution.ccs-flutter-color",
+				"github.codespaces",
+				"romanrei.material-dark",
+				"redhat.vscode-yaml"
+			]
+		}
+	},
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [],
+	// Use 'postStartCommand' to run commands each time the container is successfully started..
+	"postStartCommand": "/home/vscode/actions-runner/start.sh",
+	// Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+	"remoteUser": "vscode"
+	// Amend GitHub runner version with 'RUNNER_VERSION'. https://github.com/actions/runner/releases.
+	//"build": {
+	//	"args": {
+	//		"X": "y"
+	//	}
+	//},
 }
