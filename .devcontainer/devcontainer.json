@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/devcontainers/spec/main/schemas/devContainer.schema.json",
   "name": "Flutter",
   "image": "cirrusci/flutter:stable",
-  "containerUser": "developer",
+  // "containerUser": "developer",
   "secrets": {
     "FIREBASE_SERVICE_ACCOUNT": {
       "description": "The service account JSON to auth your Firebase project. \nEnsure the service account has Firebase Admin and Cloud Functions Admin.",
