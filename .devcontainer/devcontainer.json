@@ -3,7 +3,6 @@
   "name": "Flutter",
   "image": "cirrusci/flutter:stable",
   "containerUser": "developer",
-  "privileged": true,
   "secrets": {
     "FIREBASE_SERVICE_ACCOUNT": {
       "description": "The service account JSON to auth your Firebase project. \nEnsure the service account has Firebase Admin and Cloud Functions Admin.",
