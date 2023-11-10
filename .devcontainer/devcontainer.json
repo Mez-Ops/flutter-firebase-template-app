@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/devcontainers/spec/main/schemas/devContainer.schema.json",
   "name": "Flutter",
-  "image": "cirrusci/flutter:stable",
+  // "image": "cirrusci/flutter:stable",
   // "containerUser": "developer",
   "secrets": {
     "FIREBASE_SERVICE_ACCOUNT": {
@@ -11,10 +11,11 @@
   },
   "features": {
     "ghcr.io/devcontainers/features/github-cli:1": {},
-    // "ghcr.io/devcontainers/features/python:1": {},
-    // "ghcr.io/meaningful-ooo/devcontainer-features/homebrew:2": {},
+    "ghcr.io/devcontainers/features/python:1": {},
+    "ghcr.io/meaningful-ooo/devcontainer-features/homebrew:2": {},
     "ghcr.io/devcontainers-contrib/features/firebase-cli:2": {},
-    "ghcr.io/dhoeric/features/google-cloud-cli:1": {}
+    "ghcr.io/dhoeric/features/google-cloud-cli:1": {},
+    "ghcr.io/jarrodcolburn/features/flutter-sdk:0": {}
   },
   "customizations": {
     "vscode": {
