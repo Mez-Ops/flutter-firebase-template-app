@@ -2,7 +2,6 @@
   "$schema": "https://raw.githubusercontent.com/devcontainers/spec/main/schemas/devContainer.schema.json",
   "name": "Flutter",
   "image": "cirrusci/flutter:stable",
-  // "containerUser": "developer",
   "secrets": {
     "FIREBASE_SERVICE_ACCOUNT": {
       "description": "The service account JSON to auth your Firebase project. \nEnsure the service account has Firebase Admin and Cloud Functions Admin.",
@@ -13,8 +12,8 @@
     "ghcr.io/meaningful-ooo/devcontainer-features/homebrew:2": {}
   },
   "onCreateCommand": {
-    "install-firebase-cli": "brew install firebase-cli",
-    "install-github-cli": "brew install gh"
+    "brew install": "brew install bundle",
+    "flutter precache": "flutter precache"
   },
   "customizations": {
     "vscode": {
