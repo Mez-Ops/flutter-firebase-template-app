@@ -39,7 +39,11 @@ that you set in the secrets section of the code-space for the repo.
 Once done, commit the changes and push them to the repo. This should
 start the github actions workflow. 
 
-![Alt text](image.png)
+![Alt text](assets/github-action-success.png)
+
+You can also look at this runner here:
+
+![Alt text](assets/github-action-self-hosted-runner.png)
 
 ## Firebase setup
 
