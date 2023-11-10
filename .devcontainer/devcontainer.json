@@ -8,7 +8,7 @@
       "documentationUrl": "https://cloud.google.com/iam/docs/service-accounts-create"
     }
   },
-  "onCreateCommand": ".devcontainer/on-create-command.sh",
+  // "onCreateCommand": ".devcontainer/on-create-command.sh",
   "customizations": {
     "vscode": {
       "extensions": [
