@@ -1,0 +1,13 @@
+name: "Demo workflow for self hosted code space"
+
+on:
+    push:
+        branches: 
+            - main
+
+jobs:
+    demo:
+        runs-on: [self-hosted, TylerJewell]
+        steps:
+            - uses: actions/checkout@v3.6.0
+            - run: echo "Action triggered!"

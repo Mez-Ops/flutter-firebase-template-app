@@ -10,6 +10,19 @@ I will be using flutter web apps primarily, but you can use this template for mo
 
 This will walk you through setting up your first Flutter app.
 
+## Understanding how this template works.
+
+First, watch this video:
+
+https://dev.to/pwd9000/run-self-hosted-github-runners-on-github-codespaces-video-tutorial-1ggh
+
+or go through this tutorial:
+
+https://dev.to/pwd9000/hosting-your-self-hosted-runners-on-github-codespaces-2elc
+
+Note: you will need to follow along with this repo. There will be some steps where you need
+to create 3 secrets in the repo using a GitHub personal access token. 
+
 ## Firebase setup
 
 In order to push your app to hosting, you will need to
