@@ -1,2 +1,4 @@
 tap "homebrew/bundle"
-brew "xz"
+brew "gcc"
+brew "firebase-cli"
+brew "nano"
