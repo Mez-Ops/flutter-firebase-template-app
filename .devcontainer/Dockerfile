@@ -7,7 +7,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 COPY Brewfile /tmp
 
 # Install needed packages
-RUN apt-get update && apt-get install -y bash curl git sudo gcc
+RUN apt-get update && apt-get install -y bash curl git sudo gcc snapd
 
 # Create a new user 'developer' and 'linuxbrew' and add it to the sudo group
 RUN useradd -m developer && echo "developer:developer" | chpasswd && adduser developer sudo

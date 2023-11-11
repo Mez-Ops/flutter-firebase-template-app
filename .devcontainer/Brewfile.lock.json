@@ -169,7 +169,7 @@
         "HOMEBREW_VERSION": "4.1.19",
         "HOMEBREW_PREFIX": "/home/linuxbrew/.linuxbrew",
         "Homebrew/homebrew-core": "api",
-        "GCC": null
+        "GCC": "11.4.0"
       }
     }
   }
