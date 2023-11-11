@@ -1,5 +1,4 @@
 tap "homebrew/bundle"
-brew "gcc"
 brew "firebase-cli"
 brew "nano"
 vscode "Command is only available in WSL or inside a Visual Studio Code terminal."
