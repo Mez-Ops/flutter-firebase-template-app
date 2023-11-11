@@ -1,8 +1,2 @@
 tap "homebrew/bundle"
 brew "xz"
-brew "bash"
-brew "curl"
-brew "file-formula"
-brew "git"
-brew "unzip"
-brew "zip"
