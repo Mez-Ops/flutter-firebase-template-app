@@ -1,43 +1,41 @@
-# You can pick any Debian/Ubuntu-based image. 😊
-FROM --platform=linux/amd64 mcr.microsoft.com/vscode/devcontainers/base:bullseye
+# Use an official Ubuntu as a parent image
+FROM --platform=linux/amd64 ubuntu:latest
 
-# Switch to the new user
-USER root
+ARG DEBIAN_FRONTEND=noninteractive
 
-# Install needed packages and setup non-root user. Use a separate RUN statement to add your own dependencies.
-COPY scripts/*.sh /tmp/scripts/
+# Copy Brewfile to /tmp
+COPY Brewfile /tmp
 
-# cd into the user directory, download and unzip the github actions runner
-RUN mkdir actions-runner && cd actions-runner
+# Install needed packages
+RUN apt-get update && apt-get install -y bash curl git sudo
 
-# input GitHub runner version argument
-ARG RUNNER_VERSION=2.303.0
+# Create a new user 'developer' and 'linuxbrew' and add it to the sudo group
+RUN useradd -m developer && echo "developer:developer" | chpasswd && adduser developer sudo
+RUN useradd -m linuxbrew && echo "linuxbrew:linuxbrew" | chpasswd && adduser linuxbrew sudo
 
-# download, extract and install dependencies for GitHub Actions runner
-RUN cd actions-runner \
-    && curl -O -L https://github.com/actions/runner/releases/download/v${RUNNER_VERSION}/actions-runner-linux-x64-${RUNNER_VERSION}.tar.gz \
-    && tar xzf actions-runner-linux-x64-${RUNNER_VERSION}.tar.gz \
-    && bin/installdependencies.sh && cd ..
+# Install homebrew.
+RUN /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" && \
+    (echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> /root/.bashrc && \
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
-# install homebrew
-RUN /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+# Set the working directory in the container to the home directory of the new user
+# WORKDIR /home/developer
 
-RUN curl -sL https://firebase.tools | bash
+# Set the new user as the default user
+# USER developer
+# Set $HOME to app
+ENV HOME=/home/developer
+RUN cd /tmp && brew bundle
 
-# setup flutter
-RUN chmod +x /tmp/scripts/setup-brew.sh && /tmp/scripts/setup-brew.sh
 
-# TODO: auth with gh
-# TODO: auth with firebase
 
-# copy over the start.sh script
-# COPY .devcontainer/scripts/start.sh actions-runner/start.sh
+# Install Flutter.
+# https://docs.flutter.dev/get-started/install/linux
 
-# make the script executable
-# RUN chmod +x  actions-runner/start.sh && actions-runner/start.sh
+# Change the ownership of the Homebrew installation directory
+# USER root
+# RUN mkdir -p /home/linuxbrew/.linuxbrew && chown -R developer:developer /home/linuxbrew/.linuxbrew
+# USER developer
 
-# Clean up
-RUN rm -rf /var/lib/apt/lists/* /tmp/scripts
-
-# Switch back to vscode user
-USER vscode
+# Set the default command or entry point
+CMD ["/bin/bash"]
