@@ -17,7 +17,7 @@ RUN useradd -m linuxbrew && echo "linuxbrew:linuxbrew" | chpasswd && adduser lin
 RUN /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" && \
     (echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> /home/developer/.bashrc && \
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" && \
-    brew bundle install
+    brew bundle --file=/tmp/Brewfile &
 # brew bundle --file=/tmp/Brewfile
 
 # Set the working directory in the container to the home directory of the new user
