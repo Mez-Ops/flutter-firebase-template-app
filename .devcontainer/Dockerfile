@@ -16,7 +16,7 @@ RUN useradd -m linuxbrew && echo "linuxbrew:linuxbrew" | chpasswd && adduser lin
 # Install homebrew.
 RUN /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 RUN (echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> /home/developer/.bashrc
-RUN eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" && brew bundle --file=/tmp/Brewfile
+RUN eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # brew bundle --file=/tmp/Brewfile
 
