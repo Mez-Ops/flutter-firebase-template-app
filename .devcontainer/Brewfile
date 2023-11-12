@@ -1,2 +1,2 @@
-tap "homebrew/bundle"
+tap "firebase/firebase"
 brew "firebase-cli"

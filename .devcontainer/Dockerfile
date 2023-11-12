@@ -1,45 +1,33 @@
 # Use an official Ubuntu as a parent image
-FROM --platform=linux/amd64 ubuntu:latest
+FROM ubuntu:latest
 
 ARG DEBIAN_FRONTEND=noninteractive
+
+USER root
 
 # Copy Brewfile to /tmp
 COPY Brewfile /tmp
 
 # Install needed packages
-RUN apt-get update && apt-get install -y bash curl git sudo gcc snapd nano
+RUN apt-get update -y
+RUN apt-get install -y bash sudo xz-utils curl git gcc wget unzip libglu1-mesa build-essential clang cmake ninja-build pkg-config libgtk-3-dev liblzma-dev libstdc++-12-dev
+RUN apt-get clean
 
 # Create a new user 'developer' and 'linuxbrew' and add it to the sudo group
-RUN useradd -m developer && echo "developer:developer" | chpasswd && adduser developer sudo
-RUN useradd -m linuxbrew && echo "linuxbrew:linuxbrew" | chpasswd && adduser linuxbrew sudo
+RUN useradd -m developer && adduser developer sudo
 
 # Install homebrew.
-RUN /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" && \
-    (echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> /home/developer/.bashrc && \
-    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+RUN /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" > /dev/null
+RUN sudo chown -R developer /home/linuxbrew/
+ENV PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
 
-RUN source /home/developer/.bashrc && brew --version
+# Install Flutter
+RUN curl -LO https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_3.13.9-stable.tar.xz && \
+    tar xf flutter_linux_3.13.9-stable.tar.xz -C /opt && \
+    rm flutter_linux_3.13.9-stable.tar.xz
+ENV PATH="/opt/flutter/bin:$PATH"
 
-# brew bundle --file=/tmp/Brewfile
-
-# Set the working directory in the container to the home directory of the new user
-# 
-# Set the new user as the default user
-# USER developer
-# Set $HOME to app
-ENV HOME=/home/developer
-
-
-
-# Install Flutter.
-# https://docs.flutter.dev/get-started/install/linux
-
-# Change the ownership of the Homebrew installation directory
-# USER root
-# RUN mkdir -p /home/linuxbrew/.linuxbrew && chown -R developer:developer /home/linuxbrew/.linuxbrew
 USER developer
 
-# RUN brew bundle --file=/tmp/Brewfile
-
-# Set the default command or entry point
-CMD ["/bin/bash"]
+RUN flutter precache
+RUN brew update && brew bundle --file=/tmp/Brewfile
