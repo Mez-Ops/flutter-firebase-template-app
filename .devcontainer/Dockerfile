@@ -7,7 +7,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 COPY Brewfile /tmp
 
 # Install needed packages
-RUN apt-get update && apt-get install -y bash curl git sudo gcc snapd
+RUN apt-get update && apt-get install -y bash curl git sudo gcc snapd nano
 
 # Create a new user 'developer' and 'linuxbrew' and add it to the sudo group
 RUN useradd -m developer && echo "developer:developer" | chpasswd && adduser developer sudo
@@ -22,7 +22,6 @@ RUN eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # Set the working directory in the container to the home directory of the new user
 # WORKDIR /home/developer
-
 # Set the new user as the default user
 # USER developer
 # Set $HOME to app
