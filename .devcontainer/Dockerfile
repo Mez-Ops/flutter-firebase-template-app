@@ -14,14 +14,16 @@ RUN useradd -m developer && echo "developer:developer" | chpasswd && adduser dev
 RUN useradd -m linuxbrew && echo "linuxbrew:linuxbrew" | chpasswd && adduser linuxbrew sudo
 
 # Install homebrew.
-RUN /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-RUN (echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> /home/developer/.bashrc
-RUN eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+RUN /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" && \
+    (echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> /home/developer/.bashrc && \
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+RUN source /home/developer/.bashrc && brew --version
 
 # brew bundle --file=/tmp/Brewfile
 
 # Set the working directory in the container to the home directory of the new user
-# WORKDIR /home/developer
+# 
 # Set the new user as the default user
 # USER developer
 # Set $HOME to app
