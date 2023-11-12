@@ -14,10 +14,10 @@ RUN useradd -m developer && echo "developer:developer" | chpasswd && adduser dev
 RUN useradd -m linuxbrew && echo "linuxbrew:linuxbrew" | chpasswd && adduser linuxbrew sudo
 
 # Install homebrew.
-RUN /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" && \
-    (echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> /home/developer/.bashrc && \
-    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" && \
-    brew bundle --file=/tmp/Brewfile &
+RUN /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+RUN (echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> /home/developer/.bashrc
+RUN eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" && brew bundle --file=/tmp/Brewfile
+
 # brew bundle --file=/tmp/Brewfile
 
 # Set the working directory in the container to the home directory of the new user
@@ -36,7 +36,9 @@ ENV HOME=/home/developer
 # Change the ownership of the Homebrew installation directory
 # USER root
 # RUN mkdir -p /home/linuxbrew/.linuxbrew && chown -R developer:developer /home/linuxbrew/.linuxbrew
-# USER developer
+USER developer
+
+# RUN brew bundle --file=/tmp/Brewfile
 
 # Set the default command or entry point
 CMD ["/bin/bash"]
