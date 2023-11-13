@@ -52,8 +52,8 @@ RUN flutter precache
 # Install Brewfile
 RUN brew update && brew bundle --file=/tmp/Brewfile
 
-# Add the script to the Docker image
-COPY shellIntegration-bash.sh /opt/
+# # Add the script to the Docker image
+# COPY shellIntegration-bash.sh /opt/
 
-# Run the script when the Docker container starts
-CMD ["/usr/bin/bash", "--init-file", "/opt/shellIntegration-bash.sh"]
+# # Run the script when the Docker container starts
+# CMD ["/usr/bin/bash", "--init-file", "/opt/shellIntegration-bash.sh"]
