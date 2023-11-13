@@ -8,9 +8,7 @@ I will be using flutter web apps primarily, but you can use this template for mo
 
 # Getting Started
 
-This will walk you through setting up your first Flutter app.
-
-## Understanding how this template works.
+## Understanding this template and code spaces.
 
 First, watch this video:
 
@@ -23,51 +21,67 @@ https://dev.to/pwd9000/hosting-your-self-hosted-runners-on-github-codespaces-2el
 Note: you will need to follow along with this repo. There will be some steps where you need
 to create 3 secrets in the repo using a GitHub personal access token. 
 
-## Initial setup
+## What this code space includes
 
-### Ensure the github actions are running properly.
+### Homebrew
 
-By default, there will be a self-hosted github actions ci machine setup
-that will run all actions against the exact machine you are using to
-develop on. This will eliminate any issues with the CI machine not
-having the same environment as your local machine.
+This is a package manager for macOS (linuxbrew installed). It will be used to install other packages. I prefer to use this wherever possible. 
 
-First, go into .github/workflows and open the demo_action_self_hosted.yml file.
-Replace the `runs-on` field with an array that includes your GH_OWNER variable
-that you set in the secrets section of the code-space for the repo.
+You will notice the `Brewfile` under `.devcontainer` folder in the project root. 
+This is where you can add any packages you want to install in the future when the code space is spun up. 
 
-Once done, commit the changes and push them to the repo. This should
-start the github actions workflow. 
-
-![Alt text](assets/github-action-success.png)
-
-You can also look at this runner here:
-
-![Alt text](assets/github-action-self-hosted-runner.png)
-
-## Firebase setup
-
-Firebase CLI will be used to deploy the app to firebase.
-
-Documentation: https://console.firebase.google.com/
-
-Firebase has been installed by default. You will need to authenticate
-with the CLI by running:
+Simply install packages with:
 
 ```bash
-firebase login
+brew install <package>
 ```
 
-This will give you a link. Make sure you sign in with your firebase account.
-
-You can look at your current firebase projects by running:
+Then run:
 
 ```bash
-firebase projects:list
+brew bundle dump
 ```
 
-## Setup 
+From the .devcontainer folder to update the Brewfile with the new package.
 
+### Flutter SDK
+
+The flutter sdk comes pre-installed. You can run `flutter doctor` to see the current status of your flutter installation.
+
+#### Create your first flutter app
+
+In the terminal, run:
+
+```bash
+flutter create <app_name>
+```
+
+To create your first flutter app.
+
+### Firebase CLI
+
+This CLI is used to interact with the firebase backend from the command line.
+You can run `firebase login` to authenticate with your firebase account. Follow the instructions to authenticate with your google account. 
+
+TODO: Add instructions on how to setup firebase using .json file for authentication.
+
+### Python 3.10
+
+This will be used if you are working with firebase functions and want to use python.
+
+
+### Github CLI (gh)
+
+This is the CLI that will make it easy to interact with your repo
+in a secure manner. 
+
+Simply run:
+
+```bash
+gh auth login
+```
+
+To log on and authenticate with github. 
 
 ## Contact
 
