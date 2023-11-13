@@ -1,32 +1,17 @@
 # Use an official Ubuntu as a parent image
-FROM ubuntu:latest
-
-ARG DEBIAN_FRONTEND=noninteractive
-
-USER root
+FROM --platform=linux/amd64 ghcr.io/cirruslabs/flutter:stable
 
 # Copy Brewfile to /tmp
 COPY Brewfile /tmp
 
-# Update apt-get
-RUN apt-get update -y
+# Create the developer user
+RUN useradd -m developer
 
-# Install Basics
-RUN apt-get install -y sudo unzip wget
+RUN sudo apt-get update -y
 
-# Install Flutter dependencies for Linux (desktop dev)
-# Reference: https://docs.flutter.dev/get-started/install/linux#linux-prerequisites
-RUN apt-get install -y clang cmake git ninja-build pkg-config libgtk-3-dev liblzma-dev libstdc++-12-dev
+RUN sudo apt-get install -y clang cmake git ninja-build pkg-config libgtk-3-dev liblzma-dev libstdc++-12-dev
 
-# Install Flutter dependencies for Linux (system requirements)
-# https://docs.flutter.dev/get-started/install/linux#system-requirements
-RUN apt-get install -y bash curl gcc git libglu1-mesa xz-utils
-
-# Cleanup
-RUN apt-get clean
-
-# Create a new user 'developer' and 'linuxbrew' and add it to the sudo group
-RUN useradd -m developer && adduser developer sudo
+RUN sudo chown -R developer /sdks/flutter
 
 # Install homebrew.
 # Reference: https://brew.sh/
@@ -36,24 +21,22 @@ RUN sudo chown -R developer /home/linuxbrew/
 # Add brew to path.
 ENV PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
 
-# Install Flutter
-# Reference: https://docs.flutter.dev/get-started/install/linux#method-2-manual-installation
-RUN curl -LO https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_3.13.9-stable.tar.xz && \
-    tar xf flutter_linux_3.13.9-stable.tar.xz -C /opt && \
-    rm flutter_linux_3.13.9-stable.tar.xz
-ENV PATH="/opt/flutter/bin:$PATH"
-
-# Switch to the developer user
 USER developer
 
-# Cache Flutter dependencies
-RUN flutter precache
+RUN brew bundle --file=/tmp/Brewfile
 
-# Install Brewfile
-RUN brew update && brew bundle --file=/tmp/Brewfile
 
-# # Add the script to the Docker image
-# COPY shellIntegration-bash.sh /opt/
 
-# # Run the script when the Docker container starts
-# CMD ["/usr/bin/bash", "--init-file", "/opt/shellIntegration-bash.sh"]
+
+# # Create a new user 'developer' and 'linuxbrew' and add it to the sudo group
+#  && adduser developer sudo
+
+
+
+# 
+
+# # Cache Flutter dependencies
+# RUN flutter precache
+
+# # Install Brewfile
+# 
