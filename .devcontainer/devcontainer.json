@@ -1,22 +1,22 @@
 {
 	"name": "Flutter Code Space Container",
-	"dockerFile": "Dockerfile",
+	"image": "ghcr.io/cirruslabs/flutter",
 	"customizations": {
 		"vscode": {
 			"extensions": [
 				"dart-code.flutter",
 				"ms-python.python",
-				"ms-python.vscode-pylance",
-				"ms-python.pylint",
+				// "ms-python.vscode-pylance",
+				// "ms-python.pylint",
 				"ms-azuretools.vscode-docker",
 				"chflick.firecode",
-				"toba.vsfire",
+				// "toba.vsfire",
 				"github.copilot",
-				"github.copilot-chat",
-				"figma.figma-vscode-extension",
+				// "github.copilot-chat",
+				// "figma.figma-vscode-extension",
 				"ms-vscode-remote.remote-containers",
 				"circlecodesolution.ccs-flutter-color",
-				"github.codespaces",
+				// "github.codespaces",
 				"romanrei.material-dark",
 				"redhat.vscode-yaml"
 			]
