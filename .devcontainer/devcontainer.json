@@ -1,13 +1,14 @@
 {
 	"name": "Flutter Code Space Container",
-	"image": "ghcr.io/cirruslabs/flutter",
+	"image": "ubuntu:latest",
 	"postStartCommand": "apt-get update -y && brew bundle install --file .devcontainer/Brewfile && flutter precache && flutter doctor &",
 	"features": {
 		"ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {
 			"packages": "libgtk-3-dev clang cmake ninja-build pkg-config git"
 		},
 		"ghcr.io/meaningful-ooo/devcontainer-features/homebrew:2": {},
-		"ghcr.io/devcontainers/features/github-cli:1": {}
+		"ghcr.io/devcontainers/features/github-cli:1": {},
+		"ghcr.io/jarrodcolburn/features/flutter-sdk:0": {}
 	},
 	"customizations": {
 		"vscode": {
