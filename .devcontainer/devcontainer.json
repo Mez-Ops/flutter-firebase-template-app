@@ -1,10 +1,10 @@
 {
 	"name": "Flutter Code Space Container",
 	"image": "ghcr.io/cirruslabs/flutter",
-	"postStartCommand": "flutter precache && flutter doctor",
+	"postStartCommand": "apt-get update -y && flutter precache && flutter doctor &",
 	"features": {
 		"ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {
-			"packages": "clang cmake ninja-build pkg-config"
+			"packages": "libgtk-3-dev clang cmake ninja-build pkg-config snapd"
 		}
 	},
 	"customizations": {
