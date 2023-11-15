@@ -1,15 +1,15 @@
-name: "Demo workflow for self hosted code space"
+# name: "Demo workflow for self hosted code space"
 
-on:
-    push:
-        branches: 
-            - main
+# on:
+#     push:
+#         branches: 
+#             - main
 
-jobs:
-    demo:
-        # TODO: replace runs-on with your GH_OWNER variable.
-        # runs-on: [self-hosted, GH_OWNER]
-        runs-on: [ubuntu-latest]
-        steps:
-            - uses: actions/checkout@v3.6.0
-            - run: echo "Action triggered!"
+# jobs:
+#     demo:
+#         # TODO: replace runs-on with your GH_OWNER variable.
+#         # runs-on: [self-hosted, GH_OWNER]
+#         runs-on: [ubuntu-latest]
+#         steps:
+#             - uses: actions/checkout@v3.6.0
+#             - run: echo "Action triggered!"
