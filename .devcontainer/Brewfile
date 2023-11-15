@@ -1,4 +1,6 @@
 tap "homebrew/bundle"
+tap "homebrew/core"
 brew "firebase-cli"
 brew "gh"
 brew "git"
+brew "nano"
