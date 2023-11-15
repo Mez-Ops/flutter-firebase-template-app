@@ -3,9 +3,11 @@
 	"image": "ubuntu:latest",
 	"postStartCommand": {
 		"flutter cache": "flutter precache",
-		"flutterfire cli": "dart pub global activate flutterfire_cli"
+		"flutterfire cli": "dart pub global activate flutterfire_cli",
+		"activate flutterfire": "dart pub global activate flutterfire_cli",
+		"flutter clean and pub get": "flutter clean && flutter pub get",
+		"run web app": "flutter run -d web-server --web-port 8080"
 	},
-	"postAttachCommand": "flutter clean && flutter pub get && flutter run -d web-server --web-port 8080",
 	"forwardPorts": [
 		8080
 	],
