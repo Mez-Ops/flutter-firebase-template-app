@@ -2,12 +2,10 @@
 	"name": "Flutter Code Space Container",
 	"image": "ubuntu:latest",
 	"postStartCommand": {
-		"apt-get update": "apt-get update -y",
 		"brew bundle install": "brew bundle install --file .devcontainer/Brewfile",
-		"flutter cache": "flutter pub get && flutter precache",
-		"activate flutterfire": "dart pub global activate flutterfire_cli"
+		"flutter cache": "flutter precache"
 	},
-	"postAttachCommand": "flutter run -d web-server --web-port 8080",
+	"postAttachCommand": "dart pub global activate flutterfire_cli && flutter run -d web-server --web-port 8080",
 	"forwardPorts": [
 		8080
 	],
@@ -20,7 +18,10 @@
 	"features": {
 		"ghcr.io/meaningful-ooo/devcontainer-features/homebrew:2": {},
 		"ghcr.io/devcontainers/features/github-cli:1": {},
-		"ghcr.io/jarrodcolburn/features/flutter-sdk:0": {}
+		"ghcr.io/jarrodcolburn/features/flutter-sdk:0": {},
+		"ghcr.io/devcontainers-contrib/features/apt-get-packages:1": {
+			"packages": "git,nano"
+		}
 	},
 	"customizations": {
 		"vscode": {
