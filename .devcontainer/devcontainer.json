@@ -1,11 +1,12 @@
 {
 	"name": "Flutter Code Space Container",
 	"image": "ubuntu:latest",
-	"postStartCommand": "apt-get update -y && brew bundle install --file .devcontainer/Brewfile && flutter precache && flutter doctor &",
+	"postStartCommand": {
+		"apt-get update": "apt-get update -y",
+		"brew bundle install": "brew bundle install --file .devcontainer/Brewfile",
+		"flutter cache": "flutter precache"
+	},
 	"features": {
-		// "ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {
-		// 	"packages": "libgtk-3-dev clang cmake ninja-build pkg-config git"
-		// },
 		"ghcr.io/meaningful-ooo/devcontainer-features/homebrew:2": {},
 		"ghcr.io/devcontainers/features/github-cli:1": {},
 		"ghcr.io/jarrodcolburn/features/flutter-sdk:0": {}
@@ -15,17 +16,17 @@
 			"extensions": [
 				"dart-code.flutter",
 				"ms-python.python",
-				// "ms-python.vscode-pylance",
-				// "ms-python.pylint",
+				"streetsidesoftware.code-spell-checker",
+				"ms-python.vscode-pylance",
+				"ms-python.pylint",
 				"ms-azuretools.vscode-docker",
 				"chflick.firecode",
-				// "toba.vsfire",
+				"toba.vsfire",
 				"github.copilot",
-				// "github.copilot-chat",
-				// "figma.figma-vscode-extension",
+				"github.copilot-chat",
+				"figma.figma-vscode-extension",
 				"ms-vscode-remote.remote-containers",
 				"circlecodesolution.ccs-flutter-color",
-				// "github.codespaces",
 				"romanrei.material-dark",
 				"redhat.vscode-yaml"
 			]
