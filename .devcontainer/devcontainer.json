@@ -5,8 +5,7 @@
 		"flutter cache": "flutter precache",
 		"flutterfire cli": "dart pub global activate flutterfire_cli",
 		"activate flutterfire": "dart pub global activate flutterfire_cli",
-		"flutter clean and pub get": "flutter clean && flutter pub get",
-		"run web app": "flutter run -d web-server --web-port 8080"
+		"flutter clean and pub get": "flutter clean && flutter pub get"
 	},
 	"forwardPorts": [
 		8080
