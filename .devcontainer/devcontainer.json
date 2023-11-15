@@ -6,7 +6,16 @@
 		"brew bundle install": "brew bundle install --file .devcontainer/Brewfile",
 		"flutter cache": "flutter pub get && flutter precache",
 		"activate flutterfire": "dart pub global activate flutterfire_cli",
-		"run app": "flutter run -d web-server --web-port 9150"
+		"run app": "flutter run -d web-server --no-resident --web-port 8080"
+	},
+	"forwardPorts": [
+		8080
+	],
+	"portsAttributes": {
+		"8080": {
+			"label": "Flutter Web Application",
+			"onAutoForward": "openPreview"
+		}
 	},
 	"features": {
 		"ghcr.io/meaningful-ooo/devcontainer-features/homebrew:2": {},
