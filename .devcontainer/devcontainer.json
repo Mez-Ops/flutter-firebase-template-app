@@ -4,7 +4,9 @@
 	"postStartCommand": {
 		"apt-get update": "apt-get update -y",
 		"brew bundle install": "brew bundle install --file .devcontainer/Brewfile",
-		"flutter cache": "flutter precache && dart pub global activate flutterfire_cli"
+		"flutter cache": "flutter pub get && flutter precache",
+		"activate flutterfire": "dart pub global activate flutterfire_cli",
+		"run app": "flutter run -d web-server --web-port 9150"
 	},
 	"features": {
 		"ghcr.io/meaningful-ooo/devcontainer-features/homebrew:2": {},
