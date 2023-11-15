@@ -1,7 +1,7 @@
 {
 	"name": "Flutter Code Space Container",
 	"image": "ubuntu:latest",
-	"postStartCommand": {
+	"postCreateCommand": {
 		"flutter cache": "flutter precache",
 		"flutterfire cli": "dart pub global activate flutterfire_cli",
 		"activate flutterfire": "dart pub global activate flutterfire_cli",
