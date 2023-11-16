@@ -8,7 +8,7 @@ It has a pre-installed app that was created from:
     flutter create . --project-name sample_app --platforms web
     ```
 
-Link to video tutorial: https://youtu.be/46yJItd58Zk
+Link to video tutorial: [https://youtu.be/46yJItd58Zk](https://www.youtube.com/watch?v=sMzlmp3Kp_E&t=21s)
 
 ## Getting Started
 
