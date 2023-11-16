@@ -1,6 +1,6 @@
 {
 	"name": "Flutter Code Space Container",
-	"image": "ubuntu:latest",
+	"image": "ghcr.io/cirruslabs/flutter:stable",
 	"postCreateCommand": {
 		"flutter cache": "flutter precache",
 		"flutterfire cli": "dart pub global activate flutterfire_cli",
@@ -18,9 +18,8 @@
 	},
 	"features": {
 		"ghcr.io/devcontainers/features/github-cli:1": {},
-		"ghcr.io/jarrodcolburn/features/flutter-sdk:0": {},
 		"ghcr.io/devcontainers-contrib/features/apt-get-packages:1": {
-			"packages": "git,nano"
+			"packages": "nano"
 		},
 		"ghcr.io/devcontainers-contrib/features/firebase-cli:2": {}
 	},
