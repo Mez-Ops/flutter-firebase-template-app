@@ -3,6 +3,11 @@
 ## Overview
 This template repository is pre-configured for developing Flutter web apps in a code space environment.
 
+It has a pre-installed app that was created from:
+     ```bash
+    flutter create . --project-name sample_app --platforms web
+    ```
+
 ## Getting Started
 
 ### Set Up Firebase Project
