@@ -1,11 +1,10 @@
 name: Deploy to Firebase Hosting
 
 on:
-  # Uncomment the following line to trigger a workflow on push to your repository
-  # push:
-  #   branches:
-  #     - main
-
+  push:
+    branches:
+      # replace with main if that's your desire.
+      - insert-trigger-branch-here
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
