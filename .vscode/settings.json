@@ -9,4 +9,21 @@
         "nullcoder",
         "shellcheck"
     ],
+    "editor.inlineSuggest.enabled": true,
+    "editor.codeActionsOnSave": {
+        "source.fixAll": true
+    },
+    "github.copilot.enable": {
+        "*": true,
+        "plaintext": true,
+        "markdown": true,
+        "scminput": false,
+        "yaml": true
+    },
+    "[dart]": {
+        "editor.formatOnSave": true,
+    },
+    "[python]": {
+        "editor.formatOnSave": true,
+    },
 }

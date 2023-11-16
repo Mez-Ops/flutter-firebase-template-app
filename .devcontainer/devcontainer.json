@@ -41,7 +41,8 @@
 				"ms-vscode-remote.remote-containers",
 				"circlecodesolution.ccs-flutter-color",
 				"romanrei.material-dark",
-				"redhat.vscode-yaml"
+				"redhat.vscode-yaml",
+				"github.vscode-github-actions"
 			]
 		}
 	}
