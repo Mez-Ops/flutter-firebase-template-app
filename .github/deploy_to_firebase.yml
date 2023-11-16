@@ -1,0 +1,31 @@
+name: Deploy to Firebase Hosting
+
+on:
+  # Uncomment the following line to trigger a workflow on push to your repository
+  # push:
+  #   branches:
+  #     - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+
+    - name: Set up Flutter
+      uses: subosito/flutter-action@v2
+
+    - name: Install dependencies
+      run: flutter pub get
+
+    - name: Build Web App
+      run: flutter build web
+
+    - name: Deploy to Firebase Hosting
+      uses: w9jds/firebase-action@master
+      with:
+        args: deploy --only hosting
+      env:
+        GCP_SA_KEY: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
