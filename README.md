@@ -8,6 +8,8 @@ It has a pre-installed app that was created from:
     flutter create . --project-name sample_app --platforms web
     ```
 
+Link to video tutorial: https://youtu.be/46yJItd58Zk
+
 ## Getting Started
 
 ### Set Up Firebase Project
