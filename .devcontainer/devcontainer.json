@@ -1,6 +1,6 @@
 {
 	"name": "Flutter Code Space Container",
-	"image": "mezopsflutterapp:latest",
+	"image": "tylerpjewell/flutter-codespace:latest",
 	"customizations": {
 		"vscode": {
 			"extensions": [
