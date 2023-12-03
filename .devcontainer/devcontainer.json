@@ -1,25 +1,11 @@
 {
-	"name": "Flutter Code Space Container",
-	"image": "dart:latest",
+	"name": "Mez Ops Dev Container",
+	"dockerFile": "../Dockerfile",
 	"customizations": {
 		"vscode": {
 			"extensions": [
-				"dart-code.flutter",
-				"ms-python.python",
-				"streetsidesoftware.code-spell-checker",
-				"ms-python.vscode-pylance",
-				"ms-python.pylint",
-				"ms-azuretools.vscode-docker",
-				"chflick.firecode",
-				"toba.vsfire",
-				"github.copilot",
 				"github.copilot-chat",
-				"figma.figma-vscode-extension",
-				"ms-vscode-remote.remote-containers",
-				"circlecodesolution.ccs-flutter-color",
-				"romanrei.material-dark",
-				"redhat.vscode-yaml",
-				"github.vscode-github-actions"
+				"dart-code.flutter"
 			]
 		}
 	}
