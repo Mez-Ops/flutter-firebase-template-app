@@ -1,6 +1,6 @@
 {
-    "name": "sample_app",
-    "short_name": "sample_app",
+    "name": "mezops_flutter_app",
+    "short_name": "mezops_flutter_app",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
