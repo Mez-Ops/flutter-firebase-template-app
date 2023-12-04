@@ -1,0 +1,15 @@
+services:
+  firebase:
+    build:
+      context: ./.firebase
+      secrets:
+        - google-application-credentials
+    environment:
+      - GOOGLE_APPLICATION_CREDENTIALS=/run/secrets/google-application-credentials
+    ports:
+      - '4000:4000'
+      - '8080:8080'
+
+secrets:
+  google-application-credentials:
+    file: ./google-application-credentials.json
