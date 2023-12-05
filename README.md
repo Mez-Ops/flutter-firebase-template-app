@@ -1,16 +1,13 @@
 # mezops_flutter_app
 
-A new Flutter project.
+A Mez Ops Flutter App
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Chat GPT reference:
+`/.devcontainer/devcontainer.json`: 
+    - https://containers.dev/implementors/json_reference/
+`/.devcontainer/Dockerfile`:
+    - https://github.com/nodejs/docker-node (the base image docs)
+    - https://docs.docker.com/engine/reference/builder/ (Dockerfile reference docs) 
+    - https://firebase.google.com/docs/cli/#install-cli-mac-linux (installing firebase cli on linux)
+`firebase.json`:
+    - https://firebase.google.com/docs/cli/#the_firebasejson_file

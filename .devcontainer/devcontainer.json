@@ -1,0 +1,4 @@
+{
+    "name": "Mez Ops Flutter App",
+    "dockerFile": "Dockerfile"
+}
