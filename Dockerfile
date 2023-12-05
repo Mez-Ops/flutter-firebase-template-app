@@ -1,9 +1,22 @@
-# FROM node:latest AS firebase-build
+FROM node:slim
 
-# # Install and setup firebase
+RUN apt-get update && apt-get install -y \
+    curl \
+    git \
+    python3 \
+    default-jre \
+    && apt-get clean;
+
+RUN npm install -g firebase-tools
+RUN firebase setup:emulators:firestore
+
+# COPY google-application-credentials.json /google-application-credentials.json
+
+# ENV GOOGLE_APPLICATION_CREDENTIALS google-application-credentials.json
+
 # RUN npm install -g firebase-tools
 
-# FROM ubuntu:latest AS build
+# RUN firebase login --no-localhost
 
 # # set bash as default shell
 # SHELL ["/bin/bash", "-c"]
@@ -40,6 +53,3 @@
 
 # # Expose the port
 # EXPOSE 8080
-
-
-
