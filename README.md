@@ -10,6 +10,10 @@ If you think this is worthy of a donation, please send money to:
 
 ## Getting Started
 
+### Docker image
+
+https://hub.docker.com/repository/docker/mezops/flutter-firebase-image/general
+
 ### Prerequisites
 
 #### Firebase project
@@ -46,9 +50,6 @@ firebase emulators:exec "flutter run -d web-server --web-port 5001 --web-hostnam
 
 ## Included in base image
 
-The docker image used for the container can be found here:
-
-`https://hub.docker.com/repository/docker/mezops/flutter-firebase-image/general`
 
 ### Flutter
 
