@@ -48,15 +48,7 @@ firebase emulators:exec "flutter run -d web-server --web-port 5001 --web-hostnam
 
 The docker image used for the container can be found here:
 
-`https://hub.docker.com/r/tylerpjewell/mezops-flutter-firebase-image/tags`
-
-or, you can pull locally:
-
-```bash 
-docker pull tylerpjewell/mezops-flutter-firebase-image:latest
-```
-
-You will not need to do any of the steps above, just for reference. 
+`https://hub.docker.com/repository/docker/mezops/flutter-firebase-image/general`
 
 ### Flutter
 

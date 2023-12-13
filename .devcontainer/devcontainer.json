@@ -1,7 +1,6 @@
 {
-    "name": "mezops-flutter-firebase-container",
-    "image": "tylerpjewell/mezops-flutter-firebase-image",
-    "postStartCommand": "firebase emulators:start --only firestore,ui &",
+    "name": "flutter-firebase-template-container",
+    "image": "mezops/flutter-firebase-image",
     "containerEnv": {
         "GOOGLE_APPLICATION_CREDENTIALS": "service-account-key.json"
     },
