@@ -44,3 +44,6 @@ app.*.map.json
 
 # service keys
 **key.json
+
+# firebase cache
+**.firebase/
