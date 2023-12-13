@@ -7,5 +7,5 @@
     "workbench.editorAssociations": {
         "*.md": "vscode.markdown.preview.editor",
     },
-    "terminal.integrated.splitCwd": "initial",
+    "editor.formatOnSave": true
 }
