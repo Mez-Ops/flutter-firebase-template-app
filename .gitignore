@@ -49,4 +49,4 @@ app.*.map.json
 **.firebase/
 
 # pubspec.lock
-**pubspec.lock
+pubspec.lock
