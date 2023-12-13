@@ -1,0 +1,13 @@
+version: "3"
+services:
+  db:
+    image: firestore
+    build:
+      # context: api
+      dockerfile: firebase.Dockerfile
+    ports:
+      - 4000:4000
+      - 8080:8080
+    volumes:
+      - .cache/firebase/emulators/:/app/.cache/firebase/emulators/
+    network_mode: service:db
