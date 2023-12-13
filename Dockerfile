@@ -31,6 +31,8 @@ WORKDIR /app
 # Setup Flutter
 RUN flutter channel stable
 RUN flutter doctor
+RUN flutter config --enable-web --no-analytics
+RUN flutter precache
 RUN flutter --version
 
 # Setup Firebase CLI
@@ -38,3 +40,5 @@ RUN npm install -g firebase-tools
 RUN firebase use default
 RUN firebase --version
 RUN firebase setup:emulators:firestore
+
+RUN echo "alias fems='firebase emulators:start'" >> ~/.bashrc
