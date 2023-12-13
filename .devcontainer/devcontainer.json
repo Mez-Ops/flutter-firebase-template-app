@@ -13,27 +13,25 @@
             ]
         }
     },
-    "forwardPorts": [
-        4500,
-        8080,
-        9150,
-        5000
-    ],
     "portsAttributes": {
+        "4000": {
+            "label": "Firebase Emulators UI",
+            "openBrowser": true
+        },
         "4400": {
             "label": "Firebase Emulator Hub"
         },
         "4500": {
             "label": "Firebase Logging"
         },
+        "5002": {
+            "label": "Firebase Hosting"
+        },
         "8080": {
             "label": "Firebase Firestore"
         },
         "9150": {
             "label": "Firebase Firestore Websocket"
-        },
-        "5000": {
-            "label": "Firebase Hosting"
         }
     }
 }
