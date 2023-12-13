@@ -1,0 +1,7 @@
+{
+    "dart.flutterHotReloadOnSave": "allIfDirty",
+    "dart.flutterShowEmulators": "always",
+    "dart.flutterWebRenderer": "canvaskit",
+    "dart.hotReloadOnSave": "allIfDirty",
+    "dart.experimentalRefactors": true
+}

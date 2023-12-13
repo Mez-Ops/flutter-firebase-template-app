@@ -1,29 +1,74 @@
-# mezops_flutter_app
+# A Mez Ops Flutter App
 
-A Mez Ops Flutter App
+This is intended to be a template for a flutter app that is ready to go with firebase and the firebase emulator suite.
 
-## Features
+This is a public template and anyone it welcome to use. 
 
-### Out of the box:
-- [x] Flutter
-- [x] Firebase
-    - User is authenticated via best practices for firebase
-        - Must use ENV=GOOGLE_APPLICATION_CREDENTIALS to authenticate with firebase
-        - GOOGLE_APPLICATION_CREDENTIALS = location to credentials.json
-        - credentials.json loaded from local env and file system 
-            - if no GOOGLE_APPLICATION_CREDENTIALS, alert user
-        - running `firebase deploy` should work out of the box. 
-- [x] Firebase Emulator Suite
-    - Emulators start when container starts
-        - running `flutter run` will use the emulators by default.
-    - [x] Firestore
-    - [x] TBD
+If you think this is worthy of a donation, please send money to:
 
-### TODO:
+`https://account.venmo.com/u/Tyler-jewell1`
 
-- /firebase.json: fill out the appropriate values for the project
-- /.devcontainer/Dockerfile: create docker file so that running the devcontainer.json will implement the features above
-- /.devcontainer/devcontainer.json: do not touch, unless absolutely necessary
+## Getting Started
+
+### Prerequisites
+
+#### Firebase project
+
+1. Create a firebase project
+    - https://console.firebase.google.com/
+2. Enable hosting in console
+    - In console, click on 'Hosting' in the left nav and then click 'Get Started'
+3. Download the credentials.json file
+    - After creating the project, click the gear icon next to the project name -> Project Settings -> Service Accounts -> Generate new private key
+
+    ![Alt text](assets/download-service-account-json.png)
+4. Copy the json file to the root of the project
+
+**Note: make sure it is not checked into version control!!!**
+
+### Building and deploying your app
+
+It's as simple as running the following command:
+
+```bash
+flutter build web && firebase deploy --only hosting
+```
+
+Assuming you have followed the steps above, your app should be built and deployed to firebase hosting.
+
+### Developing locally with firebase emulators
+
+To run an app and connect it to the firebase emulators, run the following command:
+
+```bash
+firebase emulators:exec "flutter run -d chrome --web-port 5001 --web-hostname localhost"
+```
+
+## Included in base image
+
+The docker image used for the container can be found here:
+
+`https://hub.docker.com/r/tylerpjewell/mezops-flutter-firebase-image/tags`
+
+or, you can pull locally:
+
+```bash 
+docker pull tylerpjewell/mezops-flutter-firebase-image:latest
+```
+
+You will not need to do any of the steps above, just for reference. 
+
+### Flutter
+
+Image comes preinstalled with the latest version of flutter. 
+
+### Firebase (CLI)
+
+Image comes preinstalled with the latest version of firebase.
+
+#### Firebase CLI auth
+
+Make sure you followed instructions in the prerequisites section above for the firebase cli to authenticate with your project.
 
 
 ## Chat GPT reference:

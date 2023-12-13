@@ -1,4 +1,29 @@
 {
-    "name": "Mez Ops Flutter App",
-    "dockerFile": "Dockerfile"
+    "name": "mezops-flutter-firebase-container",
+    "image": "tylerpjewell/mezops-flutter-firebase-image",
+    "containerEnv": {
+        "GOOGLE_APPLICATION_CREDENTIALS": "service-account-key.json"
+    },
+    // "postStartCommand": "firebase login:ci --token $(firebase login:ci --no-localhost)",
+    "postStartCommand": {
+        "flutter": "flutter clean && flutter pub get"
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "dart-code.dart-code",
+                "dart-code.flutter"
+            ]
+        }
+    },
+    "forwardPorts": [
+        8080
+    ],
+    "portsAttributes": {
+        "8080": {
+            "label": "web",
+            // Open simple-browser to the container's forward port.
+            "onAutoForward": "openPreview"
+        }
+    }
 }
