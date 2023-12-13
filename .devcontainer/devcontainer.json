@@ -4,38 +4,36 @@
     "containerEnv": {
         "GOOGLE_APPLICATION_CREDENTIALS": "service-account-key.json"
     },
-    "postStartCommand": {
-        "flutter": "firebase emulators:start",
-        "open readme preview": "code README.md"
-    },
     "customizations": {
         "vscode": {
             "extensions": [
                 "dart-code.dart-code",
-                "dart-code.flutter"
+                "dart-code.flutter",
+                "ms-azuretools.vscode-docker"
             ]
         }
     },
+    "forwardPorts": [
+        4500,
+        8080,
+        9150,
+        5000
+    ],
     "portsAttributes": {
         "4400": {
-            "label": "Firebase Emulator Hub",
-            "onAutoForward": "notify"
+            "label": "Firebase Emulator Hub"
         },
         "4500": {
-            "label": "Firebase Logging",
-            "onAutoForward": "notify"
+            "label": "Firebase Logging"
         },
         "8080": {
-            "label": "Firebase Firestore",
-            "onAutoForward": "notify"
+            "label": "Firebase Firestore"
         },
         "9150": {
-            "label": "Firebase Firestore Websocket",
-            "onAutoForward": "notify"
+            "label": "Firebase Firestore Websocket"
         },
         "5000": {
-            "label": "Firebase Hosting",
-            "onAutoForward": "notify"
+            "label": "Firebase Hosting"
         }
     }
 }
