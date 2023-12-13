@@ -37,3 +37,4 @@ RUN flutter --version
 RUN npm install -g firebase-tools
 RUN firebase use default
 RUN firebase --version
+RUN firebase setup:emulators:firestore
