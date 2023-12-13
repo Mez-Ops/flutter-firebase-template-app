@@ -3,6 +3,9 @@ FROM ubuntu as build
 # Make apt-get not prompt for "geographic area"
 ARG DEBIAN_FRONTEND=noninteractive
 
+# Set flutter, firebase, and java environment path
+ENV PATH="/usr/local/bin/firebase:/usr/bin/java:/usr/local/flutter/bin:/usr/local/flutter/bin/cache/dart-sdk/bin:${PATH}"
+
 COPY . /app
 
 # Set environment variable for Google credentials
@@ -23,19 +26,14 @@ RUN node --version
 # download Flutter SDK from Flutter Github repo
 RUN git clone --depth 1 https://github.com/flutter/flutter.git /usr/local/flutter --branch stable
 
-# Set flutter, firebase, and java environment path
-ENV PATH="/usr/local/bin/firebase:/usr/bin/java:/usr/local/flutter/bin:/usr/local/flutter/bin/cache/dart-sdk/bin:${PATH}"
-
 WORKDIR /app
 
 # Setup Flutter
 RUN flutter channel stable
-# RUN flutter config --enable-web
 RUN flutter doctor
-
 RUN flutter --version
 
-# Install Firebase CLI
+# Setup Firebase CLI
 RUN npm install -g firebase-tools
 RUN firebase use default
 RUN firebase --version
