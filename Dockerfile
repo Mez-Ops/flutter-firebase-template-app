@@ -23,8 +23,10 @@ RUN node --version
 # download Flutter SDK from Flutter Github repo
 RUN git clone --depth 1 https://github.com/flutter/flutter.git /usr/local/flutter --branch stable
 
-# Set flutter and java environment path
-ENV PATH="/usr/bin/java:/usr/local/flutter/bin:/usr/local/flutter/bin/cache/dart-sdk/bin:${PATH}"
+# Set flutter, firebase, and java environment path
+ENV PATH="/usr/local/bin/firebase:/usr/bin/java:/usr/local/flutter/bin:/usr/local/flutter/bin/cache/dart-sdk/bin:${PATH}"
+
+WORKDIR /app
 
 # Setup Flutter
 RUN flutter channel stable
@@ -34,7 +36,6 @@ RUN flutter doctor
 RUN flutter --version
 
 # Install Firebase CLI
-RUN npm install -g firebase-tools && firebase use default
+RUN npm install -g firebase-tools
+RUN firebase use default
 RUN firebase --version
-
-EXPOSE 4400

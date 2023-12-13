@@ -41,7 +41,7 @@ Assuming you have followed the steps above, your app should be built and deploye
 To run an app and connect it to the firebase emulators, run the following command:
 
 ```bash
-firebase emulators:exec "flutter run -d chrome --web-port 5001 --web-hostname localhost"
+firebase emulators:exec "flutter run -d web-server --web-port 5001 --web-hostname localhost"
 ```
 
 ## Included in base image

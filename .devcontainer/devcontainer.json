@@ -4,9 +4,9 @@
     "containerEnv": {
         "GOOGLE_APPLICATION_CREDENTIALS": "service-account-key.json"
     },
-    // "postStartCommand": "firebase login:ci --token $(firebase login:ci --no-localhost)",
     "postStartCommand": {
-        "flutter": "flutter clean && flutter pub get"
+        "flutter": "firebase emulators:start",
+        "open readme preview": "code README.md"
     },
     "customizations": {
         "vscode": {
@@ -16,14 +16,26 @@
             ]
         }
     },
-    "forwardPorts": [
-        8080
-    ],
     "portsAttributes": {
+        "4400": {
+            "label": "Firebase Emulator Hub",
+            "onAutoForward": "notify"
+        },
+        "4500": {
+            "label": "Firebase Logging",
+            "onAutoForward": "notify"
+        },
         "8080": {
-            "label": "web",
-            // Open simple-browser to the container's forward port.
-            "onAutoForward": "openPreview"
+            "label": "Firebase Firestore",
+            "onAutoForward": "notify"
+        },
+        "9150": {
+            "label": "Firebase Firestore Websocket",
+            "onAutoForward": "notify"
+        },
+        "5000": {
+            "label": "Firebase Hosting",
+            "onAutoForward": "notify"
         }
     }
 }

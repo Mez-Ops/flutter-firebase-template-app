@@ -3,5 +3,9 @@
     "dart.flutterShowEmulators": "always",
     "dart.flutterWebRenderer": "canvaskit",
     "dart.hotReloadOnSave": "allIfDirty",
-    "dart.experimentalRefactors": true
+    "dart.experimentalRefactors": true,
+    "workbench.editorAssociations": {
+        "*.md": "vscode.markdown.preview.editor",
+    },
+    "terminal.integrated.splitCwd": "initial",
 }
