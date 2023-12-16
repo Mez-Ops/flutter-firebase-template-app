@@ -1,20 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_firebase_template_app/views/schedule_match_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    // Use Provider to access MatchProvider and display matches
-
     return Scaffold(
-      appBar: AppBar(title: const Text('Tennis Match Scheduler')),
+      appBar: AppBar(
+        title: const Text('Flutter Firebase Template App'),
+      ),
       body: const Center(
-          // Display list of matches
-          ),
+        child: Text(
+          'Hello, world!',
+          style: TextStyle(fontSize: 24.0),
+        ),
+      ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          // Navigate to MatchScheduleScreen
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => ScheduleMatchScreen()));
         },
         child: const Icon(Icons.add),
       ),
